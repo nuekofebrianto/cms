@@ -1,0 +1,12 @@
+.undisplay {
+    display: none;
+}
+
+.loader {
+    position: fixed !important;
+    z-index: 2000 !important;
+    top: 0vh;
+    height: 100%;
+    width: 100% !important;
+    background: #ffffff70;
+}
