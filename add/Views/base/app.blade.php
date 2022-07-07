@@ -7,7 +7,7 @@
     <meta name="description" content="When active, the navigation will slide over the top of the content.">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>POS CMS</title>
+    <title>POS ARSY</title>
 
     {{-- CSS --}}
 
@@ -23,6 +23,9 @@
 
     <link rel="stylesheet"
         href="{{ asset('nifty/pages/loader.css.9fc01ff357276e0c64df02b9480f36ddc50837d4a7a0c37a6f6676ebbb7468b6.css') }}">
+
+    <link rel="stylesheet"
+        href="{{ asset('nifty/pages/themify-icons.db99d0420b40095390f1cf3b606ab918c19c79ed9062722b5f722ccdeddcc09c.css') }}">
 
     <link rel="stylesheet" href="{{ asset('/custom/css/custom.css') }}">
 
