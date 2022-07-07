@@ -1,4 +1,4 @@
-<div class="content__header content__boxed">
+<div class="content__header content__boxed overlapping">
     <div class="content__wrap">
 
         <!-- Breadcrumb -->
