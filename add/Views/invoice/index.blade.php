@@ -23,9 +23,6 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
                                         <a href="#" class="dropdown-item">
                                             <i class="demo-pli-file-csv fs-5 me-2"></i> Save as CSV
                                         </a>
