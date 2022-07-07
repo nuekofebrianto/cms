@@ -17,9 +17,9 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&amp;family=Ubuntu:wght@400;500;700&amp;display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('/nifty/css/color-schemes/all-headers/ocean/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/nifty/css/color-schemes/all-headers/orange/bootstrap.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('/nifty/css/color-schemes/all-headers/ocean/nifty.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/nifty/css/color-schemes/all-headers/orange/nifty.min.css') }}">
 
     <link rel="stylesheet"
         href="{{ asset('nifty/pages/loader.css.9fc01ff357276e0c64df02b9480f36ddc50837d4a7a0c37a6f6676ebbb7468b6.css') }}">
