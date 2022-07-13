@@ -7,3 +7,9 @@ Route::get('/', function () {
 });
 
 Route::get('/invoice', 'ControllerInvoice@index');
+Route::post('/invoice/list', 'ControllerInvoice@list');
+
+Route::post('/getKantor', 'ControllerUser@showkantor');
+
+Route::get('/user', 'ControllerUser@index');
+Route::post('/user/list', 'ControllerUser@list');

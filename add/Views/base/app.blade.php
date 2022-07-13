@@ -17,21 +17,23 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&amp;family=Ubuntu:wght@400;500;700&amp;display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('/nifty/css/color-schemes/all-headers/orange/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url('/nifty/css/color-schemes/all-headers/orange/bootstrap.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('/nifty/css/color-schemes/all-headers/orange/nifty.min.css') }}">
-
-    <link rel="stylesheet"
-        href="{{ asset('nifty/pages/loader.css.9fc01ff357276e0c64df02b9480f36ddc50837d4a7a0c37a6f6676ebbb7468b6.css') }}">
+    <link rel="stylesheet" href="{{ url('/nifty/css/color-schemes/all-headers/orange/nifty.min.css') }}">
 
     <link rel="stylesheet"
-        href="{{ asset('nifty/pages/themify-icons.db99d0420b40095390f1cf3b606ab918c19c79ed9062722b5f722ccdeddcc09c.css') }}">
+        href="{{ url('nifty/pages/loader.css.9fc01ff357276e0c64df02b9480f36ddc50837d4a7a0c37a6f6676ebbb7468b6.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('/custom/css/custom.css') }}">
+    <link rel="stylesheet" href="{{ url('nifty/pages/themify-icons.db99d0420b40095390f1cf3b606ab918c19c79ed9062722b5f722ccdeddcc09c.css') }}">
+
+    <link rel="stylesheet" href="{{ url('/custom/css/custom.css') }}">
+    <link href="{{url('/nifty')}}/premium/icon-sets/icons/line-icons/premium-line-icons.min.css" rel="stylesheet">
+    <link href="{{url('/nifty')}}/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="{{url('/nifty')}}/css/select2.min.css" rel="stylesheet" />
 
 </head>
 
-<body class="out-quart">
+<body class="jumping">
 
     <div class="loader">
         <div class="loader-inner ball-rotate">
@@ -52,14 +54,20 @@
         <a href="#root" class="scroll-page rounded-circle ratio ratio-1x1" aria-label="Scroll button"></a>
     </div>
 
-    <script src="{{ asset('nifty/js/jquery.min.js') }}"></script>
+    {{-- <script src="{{ asset('nifty/js/jquery.min.js') }}"></script> --}}
+    <script src="{{url('/nifty')}}/js/jquery-3.3.1.min.js"></script>
 
     <script
-        src="{{ asset('nifty/js/bootstrap.min.bdf649e4bf3fa0261445f7c2ed3517c3f300c9bb44cb991c504bdc130a6ead19.js') }}"
+        src="{{ url('nifty/js/bootstrap.min.bdf649e4bf3fa0261445f7c2ed3517c3f300c9bb44cb991c504bdc130a6ead19.js') }}"
         defer></script>
-    <script src="{{ asset('nifty/js/nifty.min.b53472f123acc27ffd0c586e4ca3dc5d83c0670a3a5e120f766f88a92240f57b.js') }}"
+    <script src="{{ url('nifty/js/nifty.min.b53472f123acc27ffd0c586e4ca3dc5d83c0670a3a5e120f766f88a92240f57b.js') }}"
         defer></script>
-
+    
+    <script src="{{url('/nifty')}}/js/litepicker.js"></script>
+    <script src="{{url('/nifty')}}/js/jquery.dataTables.min.js"></script>
+    <script src="{{url('/nifty')}}/js/dataTables.fixedColumns.min.js"></script>
+    <script src="{{url('/nifty')}}/js/select2.min.js"></script>
+    
     @include('base.js')
     @yield('js')
 
