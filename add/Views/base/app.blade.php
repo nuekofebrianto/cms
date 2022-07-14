@@ -56,6 +56,9 @@
 
     {{-- <script src="{{ asset('nifty/js/jquery.min.js') }}"></script> --}}
     <script src="{{url('/nifty')}}/js/jquery-3.3.1.min.js"></script>
+    <script src="{{url('/nifty')}}/js/jquery.validate.min.js"></script>
+    <script src="{{url('/nifty')}}/js/additional-methods.min.js?t={{date('YmdHis')}}"></script>
+    <script src="{{url('/nifty')}}/js/sweetalert2.all.min.js"></script>
 
     <script
         src="{{ url('nifty/js/bootstrap.min.bdf649e4bf3fa0261445f7c2ed3517c3f300c9bb44cb991c504bdc130a6ead19.js') }}"
