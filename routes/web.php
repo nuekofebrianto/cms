@@ -11,5 +11,8 @@ Route::post('/invoice/list', 'ControllerInvoice@list');
 
 Route::post('/getKantor', 'ControllerUser@showkantor');
 
+Route::get('/hakakses', 'ControllerHakakses@index');
+Route::post('/hakakses/list', 'ControllerHakakses@list');
+
 Route::get('/user', 'ControllerUser@index');
 Route::post('/user/list', 'ControllerUser@list');

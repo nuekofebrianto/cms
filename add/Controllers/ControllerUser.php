@@ -69,6 +69,9 @@ class ControllerUser extends Controller
             'X-POS-PASSWORD: '.env('PASS1').''
         );
         $params = '{
+            "idkantor":"10000"
+        }';
+        $paramss = '{
             "idkantor":"'.$kantor.'"
         }';
         curl_setopt($ch, CURLOPT_URL, env('SERVER1').'showuser');

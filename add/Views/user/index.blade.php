@@ -3,10 +3,10 @@
 
 <div class="content__boxed">
     <div class="content__wrap">
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Cari Berdasarkan</h5>
-                    <form id="form_search" class="row row-cols-lg-4 g-3 align-items-center" method="POST" enctype="multipart/form-data">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Filter Data</h5>    
+                <form id="form_search" class="row row-cols-lg-4 g-3 align-items-center" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="col-12">
                         <label for="_dm-staticEmail" class="visually-hidden">Kantor</label>
@@ -16,24 +16,55 @@
                         <button type="button" class="btn btn-primary" id="search">Cari</button>
                     </div>
                 </form>
-                
+            </div>
+            <div class="card-body">
+                <div id="list"></div>
             </div>
         </div>
-        <div id="list"></div>
     </div>
 </div>
-<div class="modal fade" id="modaltambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modaltambah" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Form Tambah Data</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+            <form class="row g-3">
+                <div class="col-md-6">
+                    <label for="_dm-inputEmail2" class="form-label">Email</label>
+                    <input id="_dm-inputEmail2" type="email" class="form-control">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="_dm-inputPassword2" class="form-label">Password</label>
+                    <input id="_dm-inputPassword2" type="password" class="form-control">
+                </div>
+
+                <div class="col-12">
+                    <label for="_dm-inputAddress" class="form-label">Address</label>
+                    <input id="_dm-inputAddress" type="text" class="form-control" placeholder="1234 Main St">
+                </div>
+
+                <div class="col-12">
+                    <label for="_dm-inputAddress2" class="form-label">Address 2</label>
+                    <input id="_dm-inputAddress2" type="text" class="form-control" placeholder="Apartment, studio, or floor">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="_dm-inputCity" class="form-label">City</label>
+                    <input id="_dm-inputCity" type="text" class="form-control">
+                </div>
+
+                <div class="col-md-2">
+                    <label for="_dm-inputZip" class="form-label">Zip</label>
+                    <input id="_dm-inputZip" type="text" class="form-control">
+                </div>
+            </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
           <button type="button" class="btn btn-primary">Simpan</button>
         </div>
       </div>
@@ -111,6 +142,26 @@
 
             }
         });
+        $.ajax({
+            url: "user/list",
+            type: "POST",
+            data: $('#form_search').serialize(),
+            beforeSend: function () {
+                $('.loader').show()
+            },
+            complete: function(){
+                $('.loader').hide()
+                scrollpage('#list');
+            },
+            success: function (response) {
+                $('#list').html('');
+        	    $('#list').html(response);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                $('.loader').attr('hidden',true)
+                $("#pro_msginfo").html("Error, Sedang terjadi kesalahan..");
+            }
+        });
     }
 
     $('#search').click(function(){
@@ -139,6 +190,11 @@
 
     function modaltambah() {
         $('#modaltambah').modal('show');
+    }
+
+    function updatedata(data) {
+        console.log(data)
+        
     }
 
 </script>

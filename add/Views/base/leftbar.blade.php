@@ -28,33 +28,40 @@
             <div class="mainnav__categoriy mt-3">
                 <h6 class="mainnav__caption mt-0 px-3 fw-bold">Navigation</h6>
                 <ul class="mainnav__menu nav flex-column">
-
-
                     <li class="nav-item">
                         <a href="#" class="nav-link mininav-toggle"><i class="ti-home fs-5 me-2"></i>
 
                             <span class="nav-label mininav-content ms-1">Dashboard</span>
                         </a>
                     </li>
-
                 </ul>
             </div>
 
-            <div class="mainnav__categoriy">
+            <div class="mainnav__categoriy py-3">
+                <h6 class="mainnav__caption mt-0 px-3 fw-bold">Referensi</h6>
                 <ul class="mainnav__menu nav flex-column">
                     <li class="nav-item">
-                        <a href="{{ url('user') }}" class="nav-link mininav-toggle {{ (request()->is('/','user')) ? 'active' : '' }}">
-                            <i class="pli-user fs-5 me-2"></i>
-                            <span class="nav-label mininav-content ms-1">User</span>
+                        <a href="{{ url('hakakses') }}" class="nav-link mininav-toggle {{ (request()->is('hakakses')) ? 'active' : '' }}">
+                            <i class="pli-arrow-through fs-5 me-2"></i>
+                            <span class="nav-label mininav-content ms-1">Hak Akses</span>
                         </a>
                     </li>
                 </ul>
             </div>
 
             <div class="mainnav__categoriy">
+                <h6 class="mainnav__caption mt-0 px-3 fw-bold">Main</h6>
                 <ul class="mainnav__menu nav flex-column">
                     <li class="nav-item">
-                        <a href="{{ url('invoice') }}" class="nav-link mininav-toggle {{ (request()->is('/','invoice')) ? 'active' : '' }}">
+                        <a href="{{ url('user') }}" class="nav-link mininav-toggle {{ (request()->is('user')) ? 'active' : '' }}">
+                            <i class="pli-user fs-5 me-2"></i>
+                            <span class="nav-label mininav-content ms-1">User</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="mainnav__menu nav flex-column">
+                    <li class="nav-item">
+                        <a href="{{ url('invoice') }}" class="nav-link mininav-toggle {{ (request()->is('invoice')) ? 'active' : '' }}">
                             <i class="pli-file-bookmark fs-5 me-2"></i>
                             <span class="nav-label mininav-content ms-1">Invoice</span>
                         </a>
