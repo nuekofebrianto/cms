@@ -64,7 +64,7 @@
             $('ol.breadcrumb').children('li:last-child').html(currentPage)
         }
 
-        $('.page-title').html('Transaksi');
+        // $('.page-title').html('Transaksi');
         $('.lead').html('Tampilkan untuk');
 
         $('#search').click(function() {
