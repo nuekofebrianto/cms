@@ -18,6 +18,8 @@ Route::post('/hakakses/list', 'ControllerHakakses@list');
 Route::get('/user', 'ControllerUser@index');
 Route::post('/user/list', 'ControllerUser@list');
 Route::post('/user/save', 'ControllerUser@save');
+Route::post('/user/delete', 'ControllerUser@delete');
+Route::post('/user/update', 'ControllerUser@update');
 
 Route::get('/tracking', 'ControllerTracking@index');
 Route::post('/tracking/list', 'ControllerTracking@list');

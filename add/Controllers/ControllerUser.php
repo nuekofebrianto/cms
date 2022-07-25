@@ -68,9 +68,6 @@ class ControllerUser extends Controller
             'X-POS-USER: '.env('USER1').'',
             'X-POS-PASSWORD: '.env('PASS1').''
         );
-        $params = '{
-            "idkantor":"10000"
-        }';
         $paramss = '{
             "idkantor":"'.$kantor.'"
         }';
@@ -79,7 +76,7 @@ class ControllerUser extends Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $paramss);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $result = curl_exec ($ch);
         $res = json_decode($result);
@@ -110,6 +107,77 @@ class ControllerUser extends Controller
             "idkantor":"'.$request->kantor_add.'"
         }';
         curl_setopt($ch, CURLOPT_URL, env('SERVER1').'adduser');
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result = curl_exec ($ch);
+        $res = json_decode($result);
+        if(isset($res->KDRESPON)){
+            return $result;
+        } else {
+            return array(
+                'KDRESPON' => '99',
+                'KETRESPON' => 'Gagal! Sedang terjadi kesalahan..'
+            );
+        }
+    }
+
+    public function delete(Request $request)
+    {
+        $curl = curl_init();
+
+        $ch = curl_init();
+        $headers  = array(
+            'Content-Type: application/json',
+            'Accept: application/json',
+            'X-POS-USER: '.env('USER1').'',
+            'X-POS-PASSWORD: '.env('PASS1').''
+        );
+        $params = '{
+            "idpetugas":"'.$request->idpetugas.'"
+        }';
+        curl_setopt($ch, CURLOPT_URL, env('SERVER1').'deleteuser');
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result = curl_exec ($ch);
+        $res = json_decode($result);
+        if(isset($res->KDRESPON)){
+            return $result;
+        } else {
+            return array(
+                'KDRESPON' => '99',
+                'KETRESPON' => 'Gagal! Sedang terjadi kesalahan..'
+            );
+        }
+    }
+
+    public function update(Request $request)
+    {
+        $curl = curl_init();
+
+        $ch = curl_init();
+        $headers  = array(
+            'Content-Type: application/json',
+            'Accept: application/json',
+            'X-POS-USER: '.env('USER1').'',
+            'X-POS-PASSWORD: '.env('PASS1').''
+        );
+        $params = '{
+            "idpetugas":"'.$request->enippos.'",
+            "nama":"'.$request->enama.'",
+            "no_hp":"'.$request->enohp.'",
+            "email":"'.$request->eemail.'",
+            "idakses":"'.$request->ehakakses.'",
+            "idkantor":"'.$request->ekantor_add.'"
+        }';
+        curl_setopt($ch, CURLOPT_URL, env('SERVER1').'updateuser');
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);

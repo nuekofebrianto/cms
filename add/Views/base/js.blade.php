@@ -2,8 +2,11 @@
     $(document).ready(function() {
         $('.loader').hide()
     });
-    $('.form-select-modal').select2({
-        dropdownParent: $(".modal")
+    $('#kantor_add').select2({
+        dropdownParent: $("#modaltambah")
+    });
+    $('#ekantor_add').select2({
+        dropdownParent: $("#modalubah")
     });
     $('.form-select').select2();
     function alert(msg,icon) {

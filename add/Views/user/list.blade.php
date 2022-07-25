@@ -44,7 +44,7 @@
                 <a onclick='updatedata({{ json_encode($asdata)}})' class="btn btn-icon btn-hover btn-success text-inherit">
                     <i class="pli-pencil fs-4"></i>
                 </a>
-                <a href="#" class="btn btn-icon btn-hover btn-danger text-inherit">
+                <a onclick='deletedata({{ json_encode($asdata)}})' class="btn btn-icon btn-hover btn-danger text-inherit">
                     <i class="pli-trash fs-4"></i>
                 </a>
             </td>
