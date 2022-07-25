@@ -9,6 +9,10 @@ Route::get('/', function () {
 Route::get('/invoice', 'ControllerInvoice@index');
 Route::post('/invoice/list', 'ControllerInvoice@list');
 
+Route::get('/transaksi', 'TransaksiController@index');
+Route::post('/transaksi/list', 'TransaksiController@list');
+Route::post('/transaksi/getdata', 'TransaksiController@getdata');
+
 Route::post('/getKantor', 'ControllerUser@showkantor');
 Route::post('/getHakakses', 'ControllerHakakses@getdata');
 

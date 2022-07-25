@@ -66,6 +66,12 @@
                             <span class="nav-label mininav-content ms-1">Invoice</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ url('transaksi') }}" class="nav-link mininav-toggle {{ (request()->is('transaksi')) ? 'active' : '' }}">
+                            <i class="pli-file-bookmark fs-5 me-2"></i>
+                            <span class="nav-label mininav-content ms-1">Transaksi</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
 
