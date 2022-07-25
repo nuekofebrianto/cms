@@ -68,14 +68,6 @@
     $('.page-title').html('Hak Akses');
     $('.lead').html('Tampilkan untuk pengelolaan Referensi Hak Akses user');
 
-    function scrollpage(id) {
-        $('html, body, '+id).animate({
-            scrollTop: $(id).offset().top-70
-        }, 900, function(){
-
-        });
-    }
-
     getList();
     function getList() {
         $.ajax({

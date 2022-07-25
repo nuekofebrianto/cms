@@ -37,7 +37,7 @@
                 </ul>
             </div>
 
-            <div class="mainnav__categoriy py-3">
+            <div class="mainnav__categoriy mt-3">
                 <h6 class="mainnav__caption mt-0 px-3 fw-bold">Referensi</h6>
                 <ul class="mainnav__menu nav flex-column">
                     <li class="nav-item">
@@ -49,7 +49,7 @@
                 </ul>
             </div>
 
-            <div class="mainnav__categoriy">
+            <div class="mainnav__categoriy mt-3">
                 <h6 class="mainnav__caption mt-0 px-3 fw-bold">Main</h6>
                 <ul class="mainnav__menu nav flex-column">
                     <li class="nav-item">
@@ -68,8 +68,28 @@
                     </li>
                 </ul>
             </div>
+
+            <div class="mainnav__categoriy mt-3">
+                <h6 class="mainnav__caption mt-0 px-3 fw-bold">Tracking</h6>
+                <ul class="mainnav__menu nav flex-column">
+                    <li class="nav-item">
+                        <a href="{{ url('tracking') }}" class="nav-link mininav-toggle {{ (request()->is('tracking')) ? 'active' : '' }}">
+                            <i class="pli-window-2 fs-5 me-2"></i>
+                            <span class="nav-label mininav-content ms-1">Satuan</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="mainnav__menu nav flex-column">
+                    <li class="nav-item">
+                        <a href="{{ url('trackingmutiple') }}" class="nav-link mininav-toggle {{ (request()->is('trackingmutiple')) ? 'active' : '' }}">
+                            <i class="pli-windows-2 fs-5 me-2"></i>
+                            <span class="nav-label mininav-content ms-1">Mutiple</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             
-            <div class="mainnav__categoriy py-3">
+            <div class="mainnav__categoriy mt-3">
                 <h6 class="mainnav__caption mt-0 px-3 fw-bold">More</h6>
                 <ul class="mainnav__menu nav flex-column">
                     

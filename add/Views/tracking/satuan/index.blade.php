@@ -5,16 +5,12 @@
     <div class="content__wrap">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title">Filter Data</h5>    
-                <form id="form_search" class="row row-cols-lg-4 g-3 align-items-center" method="POST" enctype="multipart/form-data">
+                <h5 class="card-title">Resi / External ID</h5>    
+                <form id="form_search" class="row row-cols-lg-12 g-3 align-items-center" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="col-12">
-                        <label for="_dm-staticEmail" class="visually-hidden">Range Tanggal</label>
-                        <input type="text" class="form-control" id="rangetanggal" name="rangetanggal" placeholder="Masukkan range tanggal disini..">
-                    </div>
-                    <div class="col-12">
-                        <label for="_dm-inputPassword" class="visually-hidden">Id Customer</label>
-                        <input type="password" class="form-control" id="idcustomer" name="idcustomer" placeholder="Masukkan id customer..">
+                        <label class="visually-hidden">Masukkan Resi</label>
+                        <textarea class="form-control" placeholder="Masukkan nomor Resi disini.." id="resi" name="resi" rows="5"></textarea>
                     </div>
                     <div class="col-12">
                         <button type="button" class="btn btn-primary" id="search">Cari</button>
@@ -39,8 +35,8 @@
             nama: 'Home'
         },
         {
-            url: '/invoice',
-            nama: 'Invoice'
+            url: '/tracking',
+            nama: 'tracking'
         }
     ]
     setBreadCrumb(breadCrumb);
@@ -63,12 +59,20 @@
         $('ol.breadcrumb').children('li:last-child').html(currentPage)
     }
 
-    $('.page-title').html('Invoice');
-    $('.lead').html('Tampilkan untuk');
+    $('.page-title').html('Tracking Satuan');
+    $('.lead').html('Trancking untuk satuan');
+
+    $('#resi').keydown(function(event){
+        if(event.keyCode == 13) {
+            $("#search").trigger("click");
+            event.preventDefault();
+            return false;
+        }
+    });
 
     $('#search').click(function(){
         $.ajax({
-            url: "invoice/list",
+            url: "tracking/list",
             type: "POST",
             data: $('#form_search').serialize(),
             beforeSend: function () {
