@@ -16,52 +16,60 @@
     </div>
 
 </div>
-<table id="demo-dt-basic" class="table table-striped" cellspacing="0" width="100%" style="white-space: nowrap;">
-    <thead>
-        <tr>
-            <th>no</th>
-            <th>kditem</th>
-            <th>kdproduk</th>
-            <th>pengirim</th>
-            <th>alamat_pengirim</th>
-            <th>penerima</th>
-            <th>alamat_penerima</th>
-            <th>bea_dasar</th>
-            <th>htok</th>
-            <th>htnb</th>
-            <th>ppn</th>
-            <th>diskon</th>
-            <th>total_ongkir</th>
-            <th>nopenasal</th>
-            <th>nopentujuan</th>
-            <th>wktposting</th>
-            <th>status_akhir</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($data['data'] as $asdata)
+<div class="template-table">
+    <table id="demo-dt-basic" class="table table-striped" cellspacing="0" width="100%" style="white-space: nowrap;">
+        <thead>
             <tr>
-                <td>{{ $loop->index + 1 }}</td>
-                <td>{{ $asdata->kditem }}</td>
-                <td>{{ $asdata->kdproduk }}</td>
-                <td>{{ $asdata->pengirim }}</td>
-                <td>{{ $asdata->alamat_pengirim }}</td>
-                <td>{{ $asdata->bea_dasar }}</td>
-                <td>{{ $asdata->htok }}</td>
-                <td>{{ $asdata->htnb }}</td>
-                <td>{{ $asdata->ppn }}</td>
-                <td>{{ $asdata->diskon }}</td>
-                <td>{{ $asdata->total_ongkir }}</td>
-                <td>{{ $asdata->nopenasal }}</td>
-                <td>{{ $asdata->nopentujuan }}</td>
-                <td>{{ $asdata->wktposting }}</td>
-                <td>{{ $asdata->status_akhir }}</td>
+                <th>no</th>
+                <th>kditem</th>
+                <th>kdproduk</th>
+                <th>pengirim</th>
+                <th>alamat_pengirim</th>
+                <th>penerima</th>
+                <th>bea_dasar</th>
+                <th>htok</th>
+                <th>htnb</th>
+                <th>ppn</th>
+                <th>diskon</th>
+                <th>total_ongkir</th>
+                <th>nopenasal</th>
+                <th>nopentujuan</th>
+                <th>wktposting</th>
+                <th>status_akhir</th>
+    
             </tr>
-        @endforeach
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach ($data['data'] as $asdata)
+                <tr>
+                    <td>{{ $loop->index + 1 }}</td>
+                    <td>{{ $asdata->kditem }}</td>
+                    <td>{{ $asdata->kdproduk }}</td>
+                    <td>{{ $asdata->pengirim }}</td>
+                    <td>{{ $asdata->alamat_pengirim }}</td>
+                    <td>{{ $asdata->penerima }}</td>
+                    <td>{{ $asdata->bea_dasar }}</td>
+                    <td>{{ $asdata->htok }}</td>
+                    <td>{{ $asdata->htnb }}</td>
+                    <td>{{ $asdata->ppn }}</td>
+                    <td>{{ $asdata->diskon }}</td>
+                    <td>{{ $asdata->total_ongkir }}</td>
+                    <td>{{ $asdata->nopenasal }}</td>
+                    <td>{{ $asdata->nopentujuan }}</td>
+                    <td>{{ $asdata->wktposting }}</td>
+                    <td>{{ $asdata->status_akhir }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+<div class="export-table" hidden></div>
+
 <script>
+    var templateTable = $('.template-table').html()
+    var exportTable = templateTable.replace('id="demo-dt-basic"','id="demo-dt-basic-export"')
+    $('.export-table').append(exportTable)
+
     $('#demo-dt-basic').dataTable({
         "pageLength": 10,
         "responsive": false,
@@ -72,4 +80,6 @@
             right: 1
         }
     });
+
+
 </script>

@@ -10,22 +10,20 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 
-class TransaksiController extends Controller
+class PelangganController extends Controller
 {
     public function index()
     {
         $data = array(
-            'title' => 'Transaksi',
+            'title' => 'Pelanggan',
             'subtitle' => '',
             'js' => ''
         );
-        return view('transaksi/index')->with('data', $data);
+        return view('pelanggan/index')->with('data', $data);
     }
 
     public function list(Request $request)
     {
-
-        // return $request->idpelanggan;
         $ch = curl_init();
 
         $headers  = array(
@@ -35,12 +33,10 @@ class TransaksiController extends Controller
             'X-POS-PASSWORD: ' . env('PASS1') . ''
         );
         $params = '{
-            "idpelanggan":"' . $request->idpelanggan . '",
-            "tglawal":"' . $request->tglawal . '",
-            "tglakhir":"' . $request->tglakhir . '"
+            "idkantor":"' . $request->idkantor . '"
         }';
 
-        curl_setopt($ch, CURLOPT_URL, env('SERVER1') . 'getdatatransaksi');
+        curl_setopt($ch, CURLOPT_URL, env('SERVER1') . 'showpelanggan');
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -50,9 +46,9 @@ class TransaksiController extends Controller
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
         $result = curl_exec($ch);
         $res = json_decode($result);
-        if (isset($res->response_datatransaksi->data)) {
+        if (isset($res->response_showpelanggan->data)) {
             $data = array(
-                'data' => $res->response_datatransaksi->data
+                'data' => $res->response_showpelanggan->data
             );
         } else {
             $data = array(
@@ -60,7 +56,8 @@ class TransaksiController extends Controller
             );
         }
 
-        return view('transaksi/list')->with('data', $data);
+        return view('pelanggan/list')->with('data', $data);
     }
 
+  
 }

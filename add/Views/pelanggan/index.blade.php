@@ -9,14 +9,8 @@
                         enctype="multipart/form-data">
                         @csrf
                         <div class="col-12">
-                            <label for="_dm-staticEmail">Periode</label>
-                            <input type="text" class="form-control" id="periode" name="periode"
-                                placeholder="Masukkan periode disini.." autocomplete="off">
-                        </div>
-                        <div class="col-12">
-                            <label for="_dm-inputPassword">Id Pelanggan</label>
-                            <input type="text" class="form-control" id="idpelanggan" name="idpelanggan"
-                                placeholder="Masukkan id pelanggan.." autocomplete="off">
+                            <label for="_dm-staticEmail">Kantor</label>
+                            <select id="kantor" name="kantor" class="form-select"></select>
                         </div>
                         <div class="col-12">
                             <br>
@@ -34,6 +28,8 @@
 
 @section('js')
     <script>
+        getKantor();
+
         var breadCrumb = [{
                 url: '/',
                 nama: 'Home'
@@ -41,11 +37,10 @@
             {
                 url: '#',
                 nama: 'Main'
-            }
-            ,
+            },
             {
-                url: '/transaksi',
-                nama: 'Transaksi'
+                url: '/pelanggan',
+                nama: 'Pelanggan'
             }
         ]
         setBreadCrumb(breadCrumb);
@@ -74,23 +69,17 @@
 
         $('#search').click(function() {
 
-            var tanggal = $('#periode').val()
-            var periode = tanggal.split(" - ");
 
-            var tglawal = periode[0]
-            var tglakhir = periode[1]
-            var idpelanggan = $('#idpelanggan').val()
+            var idkantor = $('#kantor').val()
 
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: "transaksi/list",
+                url: "pelanggan/list",
                 type: "POST",
                 data: {
-                    idpelanggan: idpelanggan,
-                    tglawal: tglawal,
-                    tglakhir: tglakhir
+                    idkantor: idkantor
                 },
                 beforeSend: function() {
                     $('.loader').show()
@@ -102,7 +91,6 @@
                 success: function(response) {
                     $('#list').html('');
                     $('#list').html(response);
-                   
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     $('.loader').attr('hidden', true)
@@ -111,5 +99,36 @@
             });
 
         })
+
+        function getKantor() {
+            $.ajax({
+                url: "getKantor",
+                type: "post",
+                data: "{}",
+                dataType: 'JSON',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                beforeSend: function() {
+                    $('#kantor').empty();
+                },
+                complete: function() {
+
+                },
+                success: function(data) {
+                    $('#kantor,#kantor_add,#ekantor_add').append($('<option>', {
+                        value: ''
+                    }).text('Pilih Kantor'));
+                    for (var i = 0; i < data.length; i++) {
+                        $('#kantor,#kantor_add,#ekantor_add').append($('<option>', {
+                            value: data[i].KDNOPEN
+                        }).text(data[i].KDNOPEN + ' - ' + data[i].KETKANTOR));
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+
+                }
+            });
+        }
     </script>
 @endsection
