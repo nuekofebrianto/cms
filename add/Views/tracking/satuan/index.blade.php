@@ -10,7 +10,7 @@
                     @csrf
                     <div class="col-12">
                         <label class="visually-hidden">Masukkan Resi</label>
-                        <textarea class="form-control" placeholder="Masukkan nomor Resi disini.." id="resi" name="resi" rows="5"></textarea>
+                        <textarea class="form-control" placeholder="Masukkan nomor Resi disini.." id="resi" name="resi" rows="5">22ara0000068710 22ara0000069159 22ara0000069172 22ara0000069225 22ara0000069961 22ARA0000078903 22ARA0000081466 22ARA0000081810</textarea>
                     </div>
                     <div class="col-12">
                         <button type="button" class="btn btn-primary" id="search">Cari</button>
@@ -60,7 +60,7 @@
     }
 
     $('.page-title').html('Tracking Satuan');
-    $('.lead').html('Trancking untuk satuan');
+    // $('.lead').html('Trancking kiriman secara mutiple');
 
     $('#resi').keydown(function(event){
         if(event.keyCode == 13) {

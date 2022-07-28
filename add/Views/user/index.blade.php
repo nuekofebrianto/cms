@@ -158,8 +158,7 @@
         $('ol.breadcrumb').children('li:last-child').attr('aria-current', 'page')
         $('ol.breadcrumb').children('li:last-child').html(currentPage)
     }
-
-    $('.page-title').html('User');
+    
     $('.lead').html('Tampilkan untuk pengelolaan user');
 
     function scrollpage(id) {
